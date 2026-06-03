@@ -47,6 +47,7 @@ const UploadView = createOfflineAwareImport(() => import("../modules/upload/publ
 const PasteView = createOfflineAwareImport(() => import("../modules/paste/public/PasteView.vue"), "文本分享页面");
 const FileView = createOfflineAwareImport(() => import("../modules/fileshare/public/FileView.vue"), "文件预览页面");
 const MountExplorerView = createOfflineAwareImport(() => import("../modules/fs/MountExplorerView.vue"), "挂载浏览器");
+const MyPastesView = createOfflineAwareImport(() => import("../modules/paste/DocListPage.vue"), "我的文本");
 
 // 路由配置 - 完全对应原有的页面逻辑
 const routes = [
@@ -57,6 +58,15 @@ const routes = [
     meta: {
       title: "CloudPaste - 在线剪贴板",
       originalPage: "home",
+    },
+  },
+  {
+    path: "/my-pastes",
+    name: "MyPastes",
+    component: MyPastesView,
+    meta: {
+      title: "我的文本 - CloudPaste",
+      originalPage: "my-pastes",
     },
   },
   {
@@ -684,6 +694,9 @@ router.afterEach(async (to, from) => {
     switch (to.name) {
       case "Home":
         title = `${siteTitle} - ${t("pageTitle.homeSubtitle")}`;
+        break;
+      case "MyPastes":
+        title = `我的文本 - ${siteTitle}`;
         break;
       case "Upload":
         title = `${t("pageTitle.uploadSubtitle")} - ${siteTitle}`;

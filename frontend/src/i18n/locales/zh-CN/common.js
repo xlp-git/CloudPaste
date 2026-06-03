@@ -125,6 +125,7 @@ export default {
   },
   nav: {
     home: "文本编辑",
+    myPastes: "我的文本",
     upload: "文件上传",
     mountExplorer: "挂载浏览",
     admin: "管理面板",

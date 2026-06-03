@@ -124,6 +124,7 @@ export default {
   },
   nav: {
     home: "Text Editor",
+    myPastes: "My Texts",
     upload: "File Upload",
     mountExplorer: "Mount Explorer",
     admin: "Admin Panel",
